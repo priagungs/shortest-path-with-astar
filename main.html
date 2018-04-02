@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <form>
+        <input type="button" onclick="initITB()" value="Sekitar ITB"/>
+        <input type="button" onclick="initAlun()" value="Sekitar Alun-Alun"/>
+    </form>
+    <h3></h3>
+    <div id="map"></div>
+    <script src="main.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAucCEEy-uXtD2ZCLV8fJ0DaSHcKcEZI-U&callback=initMap">
+    </script>
+  </body>
+</html>
