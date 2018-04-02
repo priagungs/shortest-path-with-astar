@@ -13,8 +13,4 @@ function initMap(loc) {
       zoom: 15,
       center: loc
     });
-    var marker = new google.maps.Marker({
-      position: loc,
-      map: map
-    });
   }
