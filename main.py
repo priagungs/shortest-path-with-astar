@@ -14,17 +14,21 @@ class Graph:
     def AStar(self, initNode, destNode):
         self.queue.append([initNode, 0, [initNode]])
         curr = []
+        # visitedNode = []
+        i = 1
         while(len(self.queue) != 0):
             curr = self.queue.pop(0)
+            print(i)
+            i+=1
             print(curr)
             if(curr[0] == destNode):
                 break
             for idx in range(len(self.adjMatrix[curr[0]])):
                 if(self.adjMatrix[curr[0]][idx] != -999):
-                    visitedNode = deepcopy(curr[2])
-                    self.queue.append([idx, self.adjMatrix[curr[0]][idx] + self.heurMatrix[idx][destNode] + curr[1], visitedNode.append(idx)])
+                    # visitedNode = deepcopy(curr[2])
+                    self.queue.append([idx, self.adjMatrix[curr[0]][idx] + self.heurMatrix[idx][destNode] + curr[1], curr[2].append(idx)])
+                    print(self.queue[len(self.queue)-1])
                     self.queue.sort(key = lambda x : x[1])
-                    print(self.queue)
         return curr[2], curr[0]
     
     def ConvertAdjMatrix(self):
