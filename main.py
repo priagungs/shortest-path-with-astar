@@ -78,8 +78,7 @@ def readFile(filename):
     Adjs = []
     for i in range (0,n):
         line = fin.readline().split()
-        Adj = [(int(line[j])-1) for j in range(1,len(line))]
-        Adjs.append(Adj)
+        Adjs.append(line[1:len(line)])
     return Points, PointName, Adjs
 
 def makeAdjMatrix(Points,PointName,Adjs):
