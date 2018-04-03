@@ -142,11 +142,12 @@ HeurMat = makeHeurMatrix(Points)
 nodes = PointName
 myGraph = Graph(AdjMat, HeurMat, PointName)
 
-visitedNodes = myGraph.AStar(0, 4)
+init = int(input('Masukan simpul asal : '))
+final = int(input('Masukan simpul tujuan : '))
+visitedNodes = myGraph.AStar(init-1, final-1)
 cost = myGraph.hitungCost(visitedNodes)
 
-print(visitedNodes)
-print(cost)
+print('Total jarak yang ditempuh : ', cost, ' km')
 
 G = nx.Graph()
 nodelistVisited = []
