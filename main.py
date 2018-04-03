@@ -78,7 +78,8 @@ def readFile(filename):
     Adjs = []
     for i in range (0,n):
         line = fin.readline().split()
-        Adjs.append(line[1:len(line)])
+        Adj = [(int(line[j])-1) for j in range(1,len(line))]
+        Adjs.append(Adj)
     return Points, PointName, Adjs
 
 def makeAdjMatrix(Points,PointName,Adjs):
@@ -175,4 +176,3 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 nx.draw_networkx_edges(G, pos, edgelist=edgesForVisited, width=8,alpha=0.5,edge_color='b')
 nx.draw_networkx_edges(G, pos, edgelist=edgesForNonVisited, width=8,alpha=0.5,edge_color='r')
 plt.show()
-

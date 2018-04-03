@@ -31,7 +31,8 @@ def readFile(filename):
 	Adjs = []
 	for i in range (0,n):
 		line = fin.readline().split()
-		Adjs.append(line[1:len(line)])
+		Adj = [(int(line[j])-1) for j in range(1,len(line))]
+		Adjs.append(Adj)
 	return Points, PointName, Adjs
 
 def makeAdjMatrix(Points,PointName,Adjs):
@@ -41,7 +42,7 @@ def makeAdjMatrix(Points,PointName,Adjs):
 	for i in range(0,N):
 		AdjArr = []
 		for j in range(0,N):
-			if (PointName[j] in Adjs[i]):
+			if (j in Adjs[i]):
 				AdjArr.append(haversineDistance(Points[i],Points[j]))
 			else:
 				AdjArr.append(-999)
@@ -65,3 +66,6 @@ def makeHeurMatrix(Points):
 Points, PointName, Adjs = readFile("itb.txt")
 AdjMat = makeAdjMatrix(Points,PointName,Adjs)
 HeurMat = makeHeurMatrix(Points)
+print(Adjs)
+print(AdjMat)
+print(HeurMat)
