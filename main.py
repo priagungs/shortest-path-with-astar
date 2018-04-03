@@ -1,3 +1,4 @@
+from copy import deepcopy
 class Graph:
     def __init__(self, adjMatrix, heurMatrix, nodes):
         self.adjMatrix = adjMatrix # adjMatrix[x][y] = cost from x to y
@@ -18,7 +19,7 @@ class Graph:
                 break
             for idx in range(len(self.adjMatrix[curr[0]])):
                 if(self.adjMatrix[initNode][idx] != -999):
-                    self.queue.append([idx, self.adjMatrix[initNode][idx] + self.heurMatrix[idx][destNode] + curr[1], curr[2].append(idx)])
+                    visitedNode = deepcopy(curr[2])
+                    self.queue.append([idx, self.adjMatrix[initNode][idx] + self.heurMatrix[idx][destNode] + curr[1], visitedNode.append(idx)])
                     self.queue.sort(key = lambda x : x[1])
-        return curr[2], curr[0]                    
-        
+        return curr[2], curr[0]            
